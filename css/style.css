@@ -2,3 +2,10 @@
     margin: 0;
     padding: 0;
 }
+
+.details-btn {
+    border: none;
+    background-color: brown;
+    color: aliceblue;
+
+}
