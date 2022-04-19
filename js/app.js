@@ -17,6 +17,13 @@ const showResult = phones => {
     console.log(searchResult);
     phones.forEach(phone => {
         console.log(phone);
+        var id = phone.slug;
+        console.log(id);
+        // var lastFive = id.substr(id.length - 5);
+        // console.log(lastFive);
+        // var lastFiveInt = parseInt(lastFive);
+        // console.log(lastFiveInt);
+
 
         const div = document.createElement('div')
         div.classList.add('col')
@@ -26,7 +33,7 @@ const showResult = phones => {
                 <div class="card-body mt-5">
                         <h5 class="card-title">${phone.brand} ${phone.phone_name}</h5>
                  
-                        <button class="details-btn ps-4 pe-4 pt-2 pb-2" onclick = loadPhoneDetails(${phone.slug})>click</button>
+                        <button onclick="loadPhoneDetails('${phone.slug}')" class="details-btn ps-4 pe-4 pt-2 pb-2">click</button>
                 </div>
             </div>
         `
@@ -34,9 +41,24 @@ const showResult = phones => {
     });
 }
 
-// const loadPhoneDetails = phoneId => {
-//     const url = `https://openapi.programming-hero.com/api/phone/${phoneId}`
-//     fetch(url)
-//         .then(res => res.json())
-//         .then(data => console.log(data))
-// }
+const loadPhoneDetails = phoneId => {
+    console.log(phoneId);
+    const url = `https://openapi.programming-hero.com/api/phone/${phoneId}`
+    fetch(url)
+        .then(res => res.json())
+        .then(data => showDetails(data))
+}
+
+const showDetails = () => {
+    const details = document.getElementById('phone-details');
+
+    const div = document.createElement('div')
+    div.classList.add('col')
+    div.innerHTML = `
+        <div>
+        <h1>ddddddd</h1>
+    </div>
+        `
+
+    details.appendChild(div);
+}
