@@ -8,12 +8,13 @@ const searchPhone = () => {
     const url = `https://openapi.programming-hero.com/api/phones?search=${searchText}`
     fetch(url)
         .then(res => res.json())
-        .then(data => showResult(data.data));
+        .then(data => showResult(data.data.slice(0, 20)));
 }
 
 
 const showResult = phones => {
     const searchResult = document.getElementById('search-result')
+    searchResult.textContent = "";
     console.log(searchResult);
     phones.forEach(phone => {
         console.log(phone);
@@ -31,7 +32,8 @@ const showResult = phones => {
         <div class="card h-100 text-center">
                 <img src="${phone.image}" class="card-img-top img-fluid p-5" alt="...">
                 <div class="card-body mt-5">
-                        <h5 class="card-title">${phone.brand} ${phone.phone_name}</h5>
+                        <h4 class="card-title">${phone.phone_name}</h4>
+                        <h5 class="card-title">Brand : ${phone.brand} </h5>
                  
                         <button onclick="loadPhoneDetails('${phone.slug}')" class="details-btn ps-4 pe-4 pt-2 pb-2">click</button>
                 </div>
