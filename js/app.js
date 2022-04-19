@@ -48,19 +48,32 @@ const loadPhoneDetails = phoneId => {
     const url = `https://openapi.programming-hero.com/api/phone/${phoneId}`
     fetch(url)
         .then(res => res.json())
-        .then(data => showDetails(data))
+        .then(data => showDetails(data.data))
 }
 
-const showDetails = () => {
+const showDetails = data => {
     const details = document.getElementById('phone-details');
 
     const div = document.createElement('div')
-    div.classList.add('col')
+    div.classList.add('phone-details-card')
     div.innerHTML = `
-        <div>
-        <h1>ddddddd</h1>
-    </div>
+        <div class="p-5 w-25 mx-auto bg-light ">
+        <img src="${data.image}" class="img-fluid p-5" alt="...">
+        <h4>${data.name}</h4>
+        <h5>Brand : ${data.brand} </h5>
+        <p>${data.releaseDate}</p>
+        <h4>Features</h4>
+        <p>Chipset : ${data.mainFeatures.chipSet}</p>
+        <p>Displaysize : ${data.mainFeatures.displaySize}</p>
+        <p>Memory : ${data.mainFeatures.memory}</p>
+
+        </div>
         `
 
     details.appendChild(div);
 }
+
+// mainFeatures:
+// chipSet: "Apple A15 Bionic (5 nm)"
+// displaySize: "5.4 inches, 71.9 cm2 (~85.1% screen-to-body ratio)"
+// memory: "128GB 4GB RAM, 256GB 4GB RAM, 512GB 4GB RAM"
