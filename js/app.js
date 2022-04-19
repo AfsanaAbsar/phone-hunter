@@ -66,6 +66,9 @@ const showDetails = data => {
         <p>Chipset : ${data.mainFeatures.chipSet}</p>
         <p>Displaysize : ${data.mainFeatures.displaySize}</p>
         <p>Memory : ${data.mainFeatures.memory}</p>
+        <p>Sensors : ${data.mainFeatures.sensors[0]},${data.mainFeatures.sensors[1]},${data.mainFeatures.sensors[2]}</p>
+       
+        
 
         </div>
         `
@@ -77,3 +80,12 @@ const showDetails = data => {
 // chipSet: "Apple A15 Bionic (5 nm)"
 // displaySize: "5.4 inches, 71.9 cm2 (~85.1% screen-to-body ratio)"
 // memory: "128GB 4GB RAM, 256GB 4GB RAM, 512GB 4GB RAM"
+
+
+// sensors: Array(6)
+// 0: "Face ID"
+// 1: "accelerometer"
+// 2: "gyro"
+// 3: "proximity"
+// 4: "compass"
+// 5: "barometer"
