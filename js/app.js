@@ -22,6 +22,8 @@ const showResult = phones => {
 
 
     if (phones.length == 0) {
+        const details = document.getElementById('phone-details');
+        details.textContent = '';
         document.getElementById('error-search').style.display = 'block';
     }
 
