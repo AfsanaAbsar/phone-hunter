@@ -3,9 +3,17 @@
     padding: 0;
 }
 
+body {
+    overflow-x: hidden;
+}
+
 .details-btn {
     border: none;
     background-color: brown;
     color: aliceblue;
 
+}
+
+.search-error {
+    display: none;
 }

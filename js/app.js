@@ -1,7 +1,14 @@
+
+const searchInput = document.getElementById('search-input');
+const searchText = searchInput.value;
+
 const searchPhone = () => {
     const searchInput = document.getElementById('search-input');
     const searchText = searchInput.value;
+
     console.log(searchText);
+
+    searchInput.value = ""
 
 
     // load api
@@ -11,24 +18,29 @@ const searchPhone = () => {
         .then(data => showResult(data.data.slice(0, 20)));
 }
 
+// if (searchText.length == -1) {
+//     console.log('mmmm');
+// }
 
 const showResult = phones => {
     const searchResult = document.getElementById('search-result')
     searchResult.textContent = "";
     console.log(searchResult);
-    phones.forEach(phone => {
-        console.log(phone);
-        var id = phone.slug;
-        console.log(id);
-        // var lastFive = id.substr(id.length - 5);
-        // console.log(lastFive);
-        // var lastFiveInt = parseInt(lastFive);
-        // console.log(lastFiveInt);
+
+    if (phones.length == 0) {
+        document.getElementById('error-search').style.display = 'block';
+    }
+
+    else {
+
+        document.getElementById('error-search').style.display = 'none';
+        phones.forEach(phone => {
+            console.log(phone);
 
 
-        const div = document.createElement('div')
-        div.classList.add('col')
-        div.innerHTML = `
+            const div = document.createElement('div')
+            div.classList.add('col')
+            div.innerHTML = `
         <div class="card h-100 text-center">
                 <img src="${phone.image}" class="card-img-top img-fluid p-5" alt="...">
                 <div class="card-body mt-5">
@@ -39,8 +51,10 @@ const showResult = phones => {
                 </div>
             </div>
         `
-        searchResult.appendChild(div)
-    });
+            searchResult.appendChild(div)
+        });
+
+    }
 }
 
 const loadPhoneDetails = phoneId => {
