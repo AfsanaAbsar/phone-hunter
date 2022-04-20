@@ -27,6 +27,11 @@ body {
 
 }
 
+#phone-details {
+    align-items: center;
+    justify-content: center;
+}
+
 .search-error {
     display: none;
 }
