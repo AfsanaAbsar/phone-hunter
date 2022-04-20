@@ -7,9 +7,22 @@ body {
     overflow-x: hidden;
 }
 
+.heading-title {
+    color: rgb(88, 26, 75);
+}
+
+.heading-sub-title {
+    color: goldenrod;
+}
+
+#search-btn {
+    background-color: rgb(88, 26, 75);
+    color: aliceblue;
+}
+
 .details-btn {
     border: none;
-    background-color: brown;
+    background-color: rgb(88, 26, 75);
     color: aliceblue;
 
 }
@@ -20,4 +33,8 @@ body {
 
 #spinner {
     display: none;
+}
+
+.details-title {
+    font-weight: 600;
 }
