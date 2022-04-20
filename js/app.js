@@ -26,7 +26,8 @@ const showResult = phones => {
     }
 
     else {
-
+        const details = document.getElementById('phone-details');
+        details.textContent = '';
         document.getElementById('error-search').style.display = 'none';
         phones.forEach(phone => {
 
@@ -96,5 +97,7 @@ const showDetails = data => {
         `
 
     details.appendChild(div);
+
+
 }
 
