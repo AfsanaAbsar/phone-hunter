@@ -28,6 +28,7 @@ const showResult = phones => {
     }
 
     else {
+
         const details = document.getElementById('phone-details');
         details.textContent = '';
         document.getElementById('error-search').style.display = 'none';
@@ -75,7 +76,9 @@ const showDetails = data => {
         }
     }
 
+
     const details = document.getElementById('phone-details');
+
     details.textContent = '';
 
     const div = document.createElement('div')
@@ -99,6 +102,8 @@ const showDetails = data => {
         `
 
     details.appendChild(div);
+
+
 
 
 }
